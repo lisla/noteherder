@@ -23,6 +23,10 @@
   max-width: 80rem;
 }
 
+.NoteForm.hidden{
+  display: none;
+}
+
 input[name="title"] {
   border: none;
   font-size: 200%;

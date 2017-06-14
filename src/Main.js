@@ -11,24 +11,30 @@ class Main extends Component{
   constructor(){
     super()
     this.state = {
-      notes: []
+      notes: [],
+      new: false,
     }
     this.addNote = this.addNote.bind(this)
   }
   
-  addNote(note, ev){
-    ev.preventDefault()
+  addNote(note){
     const notes = [...this.state.notes]
     notes.unshift(note)
-    this.setState({ notes })
+    this.setState({ notes }, console.log(notes))
+  }
+
+  startNewNote(){
+    this.setState({
+      new: true
+    })
   }
 
   render(){
     return(
       <main className="Main">
-        <Sidebar onAdd={this.startNewNote}/>
+        <Sidebar />
         <NoteList notes={this.state.notes}/>
-        <NoteForm addNote={this.addNote}/>
+        <NoteForm showNote={this.state.new} addNote={this.addNote}/>
       </main>
     )
   }
