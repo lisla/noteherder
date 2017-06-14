@@ -6,7 +6,7 @@ import NoteForm from './NoteForm'
 
 const Main = () => {
   return(
-    <div className="main">
+    <div className="Main">
       <Sidebar />
       <NoteList />
       <NoteForm />
