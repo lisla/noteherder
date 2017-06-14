@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 
+import './index.css'
 import quill from './quill.svg'
 import './Sidebar.css'
 
 const Sidebar = () => {
   return(
-    <div className="Sidebar">
+    <nav className="Sidebar">
       <div className="logo">
         <img src={quill} alt="Noteherder" />
       </div>
@@ -13,7 +14,7 @@ const Sidebar = () => {
         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1152887/new-hover.png" alt="New note" />
         <img className="outline" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1152887/new.png" alt="New note" />
       </button>
-    </div>
+    </nav>
   )
 }
 
