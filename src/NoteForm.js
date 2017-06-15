@@ -20,26 +20,27 @@ class NoteForm extends Component{
   updateTitle(ev){
     this.setState({
       title: ev.target.value
-    }, () => console.log(this.state.title))
+    })
   }
 
   updateNote(ev){
     this.setState({
       note: ev.target.value,
-    }, () => console.log(this.state.note))
+    })
   }
 
   submitNote(ev){
 
     ev.preventDefault()
+
     this.props.addNote(this.state)
 
-    ev.currentTarget.reset()
-    this.hideForm()
     this.setState({
       title: '',
       note: '',
     })
+
+    this.deleteNote(ev)
   }
 
   deleteNote(ev){
