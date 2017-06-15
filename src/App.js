@@ -30,15 +30,17 @@ class App extends Component {
     this.setState({
       currentNote,
       show: true,
-    })
+    }, () => console.log(this.state.currentNote))
   }
 
   deleteNote = (note) => {
     const notes = {...this.state.notes}
-
     delete notes[note.id]
-    
     this.setState({ notes })
+
+    if(note.id === this.state.currentNote.id){
+      this.clearCurrentNote()
+    }
   }
 
   showNewNote = () => {

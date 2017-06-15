@@ -4,7 +4,7 @@ const Note = (props) => {
 
   return(
     <li>
-      <div className="note" onClick={() => props.displayNote(props.note)}>
+      <div className="note" onClick={(ev) => props.displayNote(props.note)}>
         <div className="note-title">
           {props.note.title}
         </div>
@@ -13,13 +13,16 @@ const Note = (props) => {
             {props.note.body}
           </p>
         </div>
-        <button type="button" className="button" onClick={() => props.deleteNote(props.note)}>
-              <i 
-                className="fa fa-trash-o"
-                aria-hidden="true"
-              ></i>
-        </button>
+        <p>
+          
+        </p>
       </div>
+      <button type="button" onClick={(ev) => props.deleteNote(props.note)}>
+        <i 
+          className="fa fa-trash-o"
+          aria-hidden="true"
+        ></i>
+      </button>
     </li>
   )
 }

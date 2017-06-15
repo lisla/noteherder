@@ -58,7 +58,7 @@ class NoteForm extends Component{
               name="title" 
               placeholder="Title your note"
               onChange={this.updateNote}
-              value={this.props.currentNote==={} ? this.props.currentNote.title : this.state.note.title}
+              value={!(Object.keys(this.props.currentNote).length === 0) ? this.props.currentNote.title : this.state.note.title}
               required
             />
           </p>
@@ -67,7 +67,7 @@ class NoteForm extends Component{
               name="body"
               placeholder="Just start typing..."
               onChange={this.updateNote}  
-              value={this.props.currentNote==={} ? this.props.currentNote.body : this.state.note.body}
+              value={!(Object.keys(this.props.currentNote).length === 0) ? this.props.currentNote.body : this.state.note.body}
               required
             ></textarea>
           </p>
