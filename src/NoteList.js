@@ -17,7 +17,7 @@ class NoteList extends Component {
 
   displayNote(note, ev){
     console.log(ev.target.nodeName)
-    if(! (ev.target.nodeName === 'BUTTON')){
+    if(! ( (ev.target.nodeName === 'BUTTON') || (ev.target.nodeName === 'I'))){
       ev.target.closest('.NoteList').nextElementSibling.className = "NoteForm"
       ev.target.closest('.NoteList').nextElementSibling.querySelector('input').value = note.title
       ev.target.closest('.NoteList').nextElementSibling.querySelector('textarea').value = note.note

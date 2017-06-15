@@ -29,6 +29,7 @@ class Main extends Component{
       if(n === note){
         notes.splice(i, 1)
       }
+      return notes
     })
     this.setState({ notes })
   }
@@ -41,7 +42,7 @@ class Main extends Component{
 
   render(){
     return(
-      <main className="Main">
+      <main className="Main" ref="mainComponent">
         <Sidebar />
         <NoteList notes={this.state.notes} deleteNote={this.deleteNote.bind(this)}/>
         <NoteForm showNote={this.state.show} addNote={this.addNote}/>
