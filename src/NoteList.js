@@ -5,6 +5,10 @@ import './NoteList.css'
 
 class NoteList extends Component {
 
+  deleteNote(note, ev){
+    this.props.deleteNote(note)
+  }
+
   render(){
     return (
       <div className="NoteList">
@@ -23,6 +27,12 @@ class NoteList extends Component {
                           {note.note}
                         </p>
                       </div>
+                      <button type="button" className="button" onClick={this.deleteNote.bind(this, note)}>
+                        <i 
+                          className="fa fa-trash-o"
+                          aria-hidden="true"
+                        ></i>
+                      </button>
                     </div>
                  </li>
                 )
