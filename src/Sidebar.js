@@ -6,7 +6,7 @@ import './Sidebar.css'
 
 class Sidebar extends Component{
 
-  showNote(ev){
+  showNote = (ev) => {
     ev.target.closest('.Sidebar').nextElementSibling.nextElementSibling.className = "NoteForm"
   }
 

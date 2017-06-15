@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 const Note = (props) => {
+
   return(
     <li onClick={(note) => props.display(props.note, note)}>
       <div className="note">

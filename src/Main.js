@@ -17,13 +17,13 @@ class Main extends Component{
     this.addNote = this.addNote.bind(this)
   }
   
-  addNote(note){
+  addNote = (note) => {
     const notes = [...this.state.notes]
     notes.unshift(note)
     this.setState({ notes })
   }
 
-  deleteNote(note){
+  deleteNote = (note) => {
     const notes = [...this.state.notes]
     notes.map((n, i) => {
       if(n === note){
@@ -34,7 +34,7 @@ class Main extends Component{
     this.setState({ notes })
   }
 
-  startNewNote(){
+  startNewNote = () => {
     this.setState({
       show: true
     })
@@ -44,7 +44,7 @@ class Main extends Component{
     return(
       <main className="Main" ref="mainComponent">
         <Sidebar />
-        <NoteList notes={this.state.notes} deleteNote={this.deleteNote.bind(this)}/>
+        <NoteList notes={this.state.notes} deleteNote={this.deleteNote}/>
         <NoteForm showNote={this.state.show} addNote={this.addNote}/>
       </main>
     )

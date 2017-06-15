@@ -6,7 +6,7 @@ import Note from './Note'
 
 class NoteList extends Component {
 
-  deleteNote(note, ev){
+  deleteNote = (note, ev) => {
     if (ev.currentTarget.closest('.NoteList').nextElementSibling.querySelector('input').value === note.title &&
         ev.currentTarget.closest('.NoteList').nextElementSibling.querySelector('textarea').value === note.note){
         ev.currentTarget.closest('.NoteList').nextElementSibling.querySelector('input').value = ''
@@ -16,7 +16,7 @@ class NoteList extends Component {
     this.props.deleteNote(note)
   }
 
-  displayNote(note, ev){
+  displayNote = (note, ev) => {
     if(! ( (ev.target.nodeName === 'BUTTON') || (ev.target.nodeName === 'I'))){
       ev.target.closest('.NoteList').nextElementSibling.className = "NoteForm"
       ev.target.closest('.NoteList').nextElementSibling.querySelector('input').value = note.title
@@ -32,7 +32,7 @@ class NoteList extends Component {
           {
               this.props.notes.map((note, i) => {
                 return(
-                  <Note key={i} note={note} display={(note, ev) => this.displayNote(note, ev)} delete={(note, ev) => this.deleteNote(note, ev)} />
+                  <Note key={i} note={note} display={this.displayNote} delete={this.deleteNote} />
                 )
               })
           }
