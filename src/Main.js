@@ -20,6 +20,7 @@ const Main = (props) => {
         show={props.show} 
         currentNote={props.currentNote} 
         clearCurrentNote={props.clearCurrentNote}
+        deleteNote={props.deleteNote}
       />
     </main>
   )

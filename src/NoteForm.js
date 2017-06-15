@@ -39,6 +39,7 @@ class NoteForm extends Component{
   }
 
   deleteNote = (ev) => {
+    this.props.deleteNote(this.state.note)
     this.setState({ note: this.blankNote() })
   }
 
