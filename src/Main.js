@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import './index.css'
 import './Main.css'
@@ -6,49 +6,14 @@ import Sidebar from './Sidebar'
 import NoteList from './NoteList'
 import NoteForm from './NoteForm'
 
-class Main extends Component{
-
-  constructor(){
-    super()
-    this.state = {
-      notes: [],
-      show: false,
-    }
-    this.addNote = this.addNote.bind(this)
-  }
-  
-  addNote = (note) => {
-    const notes = [...this.state.notes]
-    notes.unshift(note)
-    this.setState({ notes })
-  }
-
-  deleteNote = (note) => {
-    const notes = [...this.state.notes]
-    notes.map((n, i) => {
-      if(n === note){
-        notes.splice(i, 1)
-      }
-      return notes
-    })
-    this.setState({ notes })
-  }
-
-  startNewNote = () => {
-    this.setState({
-      show: true
-    })
-  }
-
-  render(){
-    return(
-      <main className="Main" ref="mainComponent">
-        <Sidebar />
-        <NoteList notes={this.state.notes} deleteNote={this.deleteNote}/>
-        <NoteForm showNote={this.state.show} addNote={this.addNote}/>
-      </main>
-    )
-  }
+const Main = (props) => {
+  return(
+    <main className="Main">
+      <Sidebar showNewNote={props.showNewNote}/>
+      <NoteList notes={props.notes} deleteNote={props.deleteNote} displayNote={props.displayNote}/>
+      <NoteForm saveNote={props.saveNote} show={props.show} currentNote={props.currentNote} clearCurrentNote={props.clearCurrentNote}/>
+    </main>
+  )
 }
 
 export default Main

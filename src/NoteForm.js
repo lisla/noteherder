@@ -5,51 +5,44 @@ import './NoteForm.css'
 
 class NoteForm extends Component{
 
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
+
     this.state = {
-      title: '',
-      note: '',
-      show: false,
+      note: this.blankNote()
     }
-    this.updateNote = this.updateNote.bind(this)
-    this.updateTitle = this.updateTitle.bind(this)
-    this.deleteNote = this.deleteNote.bind(this)
-  }
-  
-  updateTitle(ev){
-    this.setState({
-      title: ev.target.value
-    })
   }
 
-  updateNote(ev){
-    this.setState({
-      note: ev.target.value,
-    })
-  }
-
-  submitNote(ev){
-
-    ev.preventDefault()
-
-    this.props.addNote(this.state)
-
-    this.setState({
+  blankNote = () => {
+    return({
+      id: null,
       title: '',
-      note: '',
+      body: '',
     })
-
-    this.deleteNote(ev)
   }
 
-  deleteNote(ev){
-    ev.currentTarget.closest('form').reset()
-    this.hideForm()
-    ev.currentTarget.closest('.NoteForm').classList.add('hidden')
+  updateNote = (ev) => {
+    const note = {...this.state.note}
+    note[ev.target.name] = ev.target.value
+    this.setState(
+      { note }, 
+      () => this.props.saveNote(note)
+    )
   }
 
-  hideForm(){
+  saveNote = (ev) => {
+    ev.preventDefault()
+    this.setState(
+      { note: this.blankNote() },
+      () => this.props.clearCurrentNote()
+    )
+  }
+
+  deleteNote = (ev) => {
+    this.setState({ note: this.blankNote() })
+  }
+
+  hideForm = () => {
     this.setState({
       show: false,
     })
@@ -57,38 +50,34 @@ class NoteForm extends Component{
 
   render(){
     return(
-      <div className={this.state.show ? "NoteForm" : "NoteForm hidden"}>
-        <form onSubmit={this.submitNote.bind(this)}>
+      <div className={this.props.show ? "NoteForm" : "NoteForm hidden"}>
+        <form onSubmit={this.saveNote}>
           <p>
             <input 
               type="text" 
               name="title" 
               placeholder="Title your note"
-              onChange={this.updateTitle}
+              onChange={this.updateNote}
+              value={this.props.currentNote==={} ? this.props.currentNote.title : this.state.note.title}
               required
             />
           </p>
           <p>
             <textarea 
               name="body"
-              cols="30" 
-              rows="10" 
               placeholder="Just start typing..."
               onChange={this.updateNote}  
+              value={this.props.currentNote==={} ? this.props.currentNote.body : this.state.note.body}
               required
             ></textarea>
           </p>
-          <p>
-            <button type="submit" className="button">Submit</button>
-          </p>
-          <p>
-            <button type="button" className="button" onClick={this.deleteNote}>
-              <i 
-                className="fa fa-trash-o"
-                aria-hidden="true"
-              ></i>
-            </button>
-          </p>
+          <button type="submit">Save and New</button>
+          <button type="button" onClick={this.deleteNote}>
+            <i 
+              className="fa fa-trash-o"
+              aria-hidden="true"
+            ></i>
+          </button>
         </form>
       </div>
     )
