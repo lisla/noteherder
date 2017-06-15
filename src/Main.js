@@ -12,7 +12,7 @@ class Main extends Component{
     super()
     this.state = {
       notes: [],
-      new: false,
+      show: false,
     }
     this.addNote = this.addNote.bind(this)
   }
@@ -20,23 +20,22 @@ class Main extends Component{
   addNote(note){
     const notes = [...this.state.notes]
     notes.unshift(note)
-    this.setState({ notes }, console.log(notes))
+    this.setState({ notes })
   }
 
   deleteNote(note){
     const notes = [...this.state.notes]
     notes.map((n, i) => {
       if(n === note){
-        console.log(n)
         notes.splice(i, 1)
       }
     })
-    this.setState({ notes }, console.log(notes))
+    this.setState({ notes })
   }
 
   startNewNote(){
     this.setState({
-      new: true
+      show: true
     })
   }
 
@@ -45,7 +44,7 @@ class Main extends Component{
       <main className="Main">
         <Sidebar />
         <NoteList notes={this.state.notes} deleteNote={this.deleteNote.bind(this)}/>
-        <NoteForm showNote={this.state.new} addNote={this.addNote}/>
+        <NoteForm showNote={this.state.show} addNote={this.addNote}/>
       </main>
     )
   }

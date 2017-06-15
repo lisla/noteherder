@@ -9,6 +9,12 @@ class NoteList extends Component {
     this.props.deleteNote(note)
   }
 
+  displayNote(note, ev){
+    ev.target.closest('.NoteList').nextElementSibling.className = "NoteForm"
+    ev.target.closest('.NoteList').nextElementSibling.querySelector('input').value = note.title
+    ev.target.closest('.NoteList').nextElementSibling.querySelector('textarea').value = note.note
+  }
+
   render(){
     return (
       <div className="NoteList">
@@ -17,7 +23,7 @@ class NoteList extends Component {
           {
               this.props.notes.map((note, i) => {
                 return(
-                  <li key={i}>
+                  <li key={i} onClick={this.displayNote.bind(this, note)}>
                     <div className="note">
                       <div className="note-title">
                         {note.title}
@@ -28,10 +34,10 @@ class NoteList extends Component {
                         </p>
                       </div>
                       <button type="button" className="button" onClick={this.deleteNote.bind(this, note)}>
-                        <i 
-                          className="fa fa-trash-o"
-                          aria-hidden="true"
-                        ></i>
+                            <i 
+                              className="fa fa-trash-o"
+                              aria-hidden="true"
+                            ></i>
                       </button>
                     </div>
                  </li>

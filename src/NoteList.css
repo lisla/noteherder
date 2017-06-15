@@ -20,6 +20,14 @@
   margin: 20px 2rem;
 }
 
+.NoteList button{
+  margin-bottom: 10em;
+}
+
+.NoteList li{
+  padding-bottom: 1em;
+}
+
 ul#notes {
   border-top: 1px solid #eee;
   overflow-y: scroll;
@@ -35,7 +43,7 @@ ul#notes > li {
   height: 100px;
   font-size: 90%;
   cursor: pointer;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 ul#notes > li,
@@ -72,7 +80,7 @@ ul#notes li .note-title {
   text-overflow: ellipsis;
 }
 ul#notes li .note-body {
-  height: 54px;
+  height: 35px;
   overflow: hidden;
   margin-top: 0.5rem;
 }
