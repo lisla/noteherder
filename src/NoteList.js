@@ -12,7 +12,6 @@ class NoteList extends Component {
         ev.target.closest('.NoteList').nextElementSibling.querySelector('input').value = ''
         ev.target.closest('.NoteList').nextElementSibling.querySelector('textarea').value = ''
     }
-
     this.props.deleteNote(note)
   }
 

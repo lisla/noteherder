@@ -30,11 +30,16 @@ class NoteForm extends Component{
   }
 
   submitNote(ev){
+
     ev.preventDefault()
     this.props.addNote(this.state)
 
     ev.currentTarget.reset()
     this.hideForm()
+    this.setState({
+      title: '',
+      note: '',
+    })
   }
 
   deleteNote(ev){
@@ -59,6 +64,7 @@ class NoteForm extends Component{
               name="title" 
               placeholder="Title your note"
               onChange={this.updateTitle}
+              required
             />
           </p>
           <p>
@@ -68,6 +74,7 @@ class NoteForm extends Component{
               rows="10" 
               placeholder="Just start typing..."
               onChange={this.updateNote}  
+              required
             ></textarea>
           </p>
           <p>
