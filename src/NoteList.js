@@ -6,13 +6,23 @@ import './NoteList.css'
 class NoteList extends Component {
 
   deleteNote(note, ev){
+
+    if (ev.target.closest('.NoteList').nextElementSibling.querySelector('input').value === note.title &&
+        ev.target.closest('.NoteList').nextElementSibling.querySelector('textarea').value === note.note){
+        ev.target.closest('.NoteList').nextElementSibling.querySelector('input').value = ''
+        ev.target.closest('.NoteList').nextElementSibling.querySelector('textarea').value = ''
+    }
+
     this.props.deleteNote(note)
   }
 
   displayNote(note, ev){
-    ev.target.closest('.NoteList').nextElementSibling.className = "NoteForm"
-    ev.target.closest('.NoteList').nextElementSibling.querySelector('input').value = note.title
-    ev.target.closest('.NoteList').nextElementSibling.querySelector('textarea').value = note.note
+    console.log(ev.target.nodeName)
+    if(! (ev.target.nodeName === 'BUTTON')){
+      ev.target.closest('.NoteList').nextElementSibling.className = "NoteForm"
+      ev.target.closest('.NoteList').nextElementSibling.querySelector('input').value = note.title
+      ev.target.closest('.NoteList').nextElementSibling.querySelector('textarea').value = note.note
+    }
   }
 
   render(){
