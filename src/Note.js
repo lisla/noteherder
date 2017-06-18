@@ -13,16 +13,15 @@ const Note = (props) => {
             {props.note.body}
           </p>
         </div>
-        <p>
-          
-        </p>
       </div>
-      <button type="button" onClick={(ev) => props.deleteNote(props.note)}>
-        <i 
-          className="fa fa-trash-o"
-          aria-hidden="true"
-        ></i>
-      </button>
+      <div>
+        <button type="button" onClick={(ev) => props.deleteNote(props.note)}>
+            <i 
+              className="fa fa-trash-o"
+              aria-hidden="true"
+            ></i>
+          </button>
+      </div>
     </li>
   )
 }
