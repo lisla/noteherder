@@ -58,11 +58,9 @@ class NoteForm extends Component{
 
   componentWillReceiveProps(newProps){
     console.log('receive props')
-    if(newProps.currentNote.title !== ''){
-      this.setState({
-        note: newProps.currentNote,
-      }, () => console.log(this.state.note.title))
-    }
+    this.setState({
+      note: newProps.currentNote,
+    }, () => console.log(this.state.note.title))
   }
 
   render(){
