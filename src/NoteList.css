@@ -32,7 +32,7 @@
 
 .NoteList button:hover{
   background-color: darkgray;
-  transition: 0.5s;
+  transition: 0.9s;
 }
 
 .NoteList i{
@@ -61,8 +61,9 @@ ul#notes > li {
 }
 
 ul#notes > li,
-ul#notes > li * {
-  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+ul#notes > li, ul#notes > li * {
+  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -o-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 ul#notes li .note {
