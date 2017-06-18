@@ -5,11 +5,13 @@ import './NoteForm.css'
 
 class NoteForm extends Component{
 
-  constructor(props){
-    super(props)
+  constructor(){
+    super()
+
+    console.log('constructor')
 
     this.state = {
-      note: this.blankNote()
+      note: this.blankNote(),
     }
   }
 
@@ -34,7 +36,12 @@ class NoteForm extends Component{
     ev.preventDefault()
     this.setState(
       { note: this.blankNote() },
-      () => this.props.clearCurrentNote()
+      () => {
+        this.props.clearCurrentNote()
+        console.log(
+          document.querySelector('input').value
+        )  
+      }
     )
   }
 
@@ -49,26 +56,35 @@ class NoteForm extends Component{
     })
   }
 
+  componentWillReceiveProps(newProps){
+    console.log('receive props')
+    if(newProps.currentNote.title !== ''){
+      this.setState({
+        note: newProps.currentNote,
+      }, () => console.log(this.state.note.title))
+    }
+  }
+
   render(){
     return(
       <div className={this.props.show ? "NoteForm" : "NoteForm hidden"}>
         <form onSubmit={this.saveNote}>
           <p>
-            <input 
+            <input
               type="text" 
               name="title" 
               placeholder="Title your note"
               onChange={this.updateNote}
-              value={!(Object.keys(this.props.currentNote).length === 0) ? this.props.currentNote.title : this.state.note.title}
+              value={this.state.note.title}
               required
             />
           </p>
           <p>
-            <textarea 
+            <textarea
               name="body"
               placeholder="Just start typing..."
               onChange={this.updateNote}  
-              value={!(Object.keys(this.props.currentNote).length === 0) ? this.props.currentNote.body : this.state.note.body}
+              value={this.state.note.body}
               required
             ></textarea>
           </p>

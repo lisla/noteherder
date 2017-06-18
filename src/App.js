@@ -11,9 +11,17 @@ class App extends Component {
 
     this.state = {
       notes: {},
-      currentNote: {},
+      currentNote: this.blankNote(),
       show: false,
     }
+  }
+
+  blankNote(){
+    return({
+      id: null,
+      title: '',
+      body: '',
+    })
   }
 
   saveNote = (note) => {
@@ -22,7 +30,10 @@ class App extends Component {
     }
     const notes = {...this.state.notes}
     notes[note.id] = note
-    this.setState({ notes })
+    this.setState({ 
+      notes: notes,
+      currentNote: note, 
+    })
   }
 
   displayNote = (note) => {
@@ -51,7 +62,7 @@ class App extends Component {
 
   clearCurrentNote = () => {
     this.setState({
-      currentNote: {}
+      currentNote: this.blankNote()
     })
   }
 
