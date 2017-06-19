@@ -2,9 +2,19 @@ import React from 'react'
 
 import './SignIn.css'
 
-const SignIn = () => {
+const SignIn = ({ authHandler }) => {
+  
+  const authenticate = () => {
+    authHandler({
+      uid: 'lisla'
+    })
+  }
+  
   return(
-    <button className="SignIn">
+    <button 
+      className="SignIn"
+      onClick={authenticate}
+    >
       Sign In With GitHub
     </button>
   )
