@@ -82,7 +82,8 @@ class App extends Component {
 
   showNewNote = () => {
     this.setState({
-      show: true
+      show: true,
+      currentNote: this.blankNote(),
     }, () => console.log(this.state.show))
   }
 

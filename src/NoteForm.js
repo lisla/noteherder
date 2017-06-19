@@ -8,8 +8,6 @@ class NoteForm extends Component{
   constructor(){
     super()
 
-    console.log('constructor')
-
     this.state = {
       note: this.blankNote(),
     }
@@ -55,7 +53,6 @@ class NoteForm extends Component{
   }
 
   componentWillReceiveProps(newProps){
-    console.log('receive props')
     this.setState({
       note: newProps.currentNote,
     }, () => console.log(this.state.note.title))
@@ -84,7 +81,6 @@ class NoteForm extends Component{
               required
             ></textarea>
           </p>
-          <button type="submit">Save</button>
           <button type="button" onClick={this.deleteNote}>
             <i 
               className="fa fa-trash-o"

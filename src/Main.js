@@ -9,7 +9,10 @@ import NoteForm from './NoteForm'
 const Main = (props) => {
   return(
     <main className="Main">
-      <Sidebar showNewNote={props.showNewNote}/>
+      <Sidebar 
+        showNewNote={props.showNewNote}
+        saveNote={props.saveNote} 
+      />
       <NoteList 
         notes={props.notes} 
         deleteNote={props.deleteNote} 

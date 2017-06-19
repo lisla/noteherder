@@ -1,12 +1,16 @@
 .SignOut {
-  height: 48px;
-  padding: 0 1rem;
-  min-width: 100px;
-  margin-right: 2rem;
-  background: #008BF8;
+  background-color: #008BF8;
+  border: 0;
+  border-radius: 5px;
   color: white;
-  border: none;
-  border-radius: 3px;
-  cursor: hand;
+  margin: 0 auto;
+  padding: 7px;
+  -webkit-transition: background 0.2s;
+  -o-transition: background 0.2s;
+  transition: background 0.2s;
+  font-family: 'helvetica neue', sans-serif;
+  font-size: 12px;
+  font-weight: 200;
   cursor: pointer;
+  cursor: hand;
 }
