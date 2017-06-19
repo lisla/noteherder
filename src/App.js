@@ -74,7 +74,6 @@ class App extends Component {
     this.setState({ notes })
 
     if(note.id === this.state.currentNote.id){
-      console.log('clear current note')
       this.clearCurrentNote()
       this.hideNoteForm()
     }
