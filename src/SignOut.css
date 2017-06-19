@@ -1,0 +1,12 @@
+.SignOut {
+  height: 36px;
+  padding: 0 1rem;
+  min-width: 50px;
+  margin-right: 2rem;
+  background: #008BF8;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: hand;
+  cursor: pointer;
+}

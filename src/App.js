@@ -4,6 +4,8 @@ import './index.css'
 import './App.css'
 import Main from './Main'
 import base from './base'
+import SignIn from './SignIn'
+import SignOut from './SignOut'
 
 class App extends Component {
 
@@ -85,9 +87,14 @@ class App extends Component {
     })
   }
 
-  render() {
-    return (
-      <div className="App">
+  signedIn = () => {
+    return true
+  }
+
+  renderMain = () => {
+    return(
+      <div>
+        <SignOut />
         <Main 
           notes={this.state.notes} 
           currentNote={this.state.currentNote}
@@ -100,6 +107,14 @@ class App extends Component {
           clearCurrentNote={this.clearCurrentNote}
           hideNoteForm={this.hideNoteForm}
         />
+      </div>
+    )
+  }
+
+  render() {
+    return (
+      <div className="App">
+        { this.signedIn() ? this.renderMain() : <SignIn /> }
       </div>
     )
   }
