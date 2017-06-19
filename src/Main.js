@@ -21,6 +21,7 @@ const Main = (props) => {
         currentNote={props.currentNote} 
         clearCurrentNote={props.clearCurrentNote}
         deleteNote={props.deleteNote}
+        hideNoteForm={props.hideNoteForm}
       />
     </main>
   )

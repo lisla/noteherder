@@ -52,6 +52,7 @@ class App extends Component {
     if(note.id === this.state.currentNote.id){
       console.log('clear current note')
       this.clearCurrentNote()
+      this.hideNoteForm()
     }
   }
 
@@ -64,6 +65,12 @@ class App extends Component {
   clearCurrentNote = () => {
     this.setState({
       currentNote: this.blankNote()
+    })
+  }
+
+  hideNoteForm = () => {
+    this.setState({
+      show: false,
     })
   }
 
@@ -80,6 +87,7 @@ class App extends Component {
           displayNote={this.displayNote} 
           showNewNote={this.showNewNote}
           clearCurrentNote={this.clearCurrentNote}
+          hideNoteForm={this.hideNoteForm}
         />
       </div>
     )

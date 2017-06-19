@@ -38,9 +38,7 @@ class NoteForm extends Component{
       { note: this.blankNote() },
       () => {
         this.props.clearCurrentNote()
-        console.log(
-          document.querySelector('input').value
-        )  
+        this.props.hideNoteForm()
       }
     )
   }
@@ -86,7 +84,7 @@ class NoteForm extends Component{
               required
             ></textarea>
           </p>
-          <button type="submit">Save and New</button>
+          <button type="submit">Save</button>
           <button type="button" onClick={this.deleteNote}>
             <i 
               className="fa fa-trash-o"
