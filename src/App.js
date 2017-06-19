@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './index.css'
 import './App.css'
 import Main from './Main'
+import base from './base'
 
 class App extends Component {
 
@@ -14,6 +15,16 @@ class App extends Component {
       currentNote: this.blankNote(),
       show: false,
     }
+  }
+
+  componentWillMount(){
+    base.syncState(
+      'notes',
+      {
+        context: this,
+        state: 'notes',
+      }
+    )
   }
 
   blankNote(){
