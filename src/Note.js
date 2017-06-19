@@ -15,7 +15,7 @@ const Note = (props) => {
         </div>
       </div>
       <div>
-        <button type="button" onClick={(ev) => props.deleteNote(props.note)}>
+        <button type="button" onClick={(ev) => props.deleteNote(props.note) }>
             <i 
               className="fa fa-trash-o"
               aria-hidden="true"

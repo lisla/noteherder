@@ -70,7 +70,7 @@ class App extends Component {
 
   deleteNote = (note) => {
     const notes = {...this.state.notes}
-    delete notes[note.id]
+    notes[note.id] = null
     this.setState({ notes })
 
     if(note.id === this.state.currentNote.id){

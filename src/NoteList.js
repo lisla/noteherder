@@ -11,7 +11,12 @@ const NoteList = (props) => {
       <ul id="notes">
         { 
           Object.keys(props.notes).map((noteId) => {
-            return <Note note={props.notes[noteId]} key={noteId} deleteNote={props.deleteNote} displayNote={props.displayNote}/>
+            return <Note 
+                    note={props.notes[noteId]} 
+                    key={noteId} 
+                    deleteNote={props.deleteNote} 
+                    displayNote={props.displayNote}
+                   />
           }) 
         }
       </ul>
