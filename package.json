@@ -1,6 +1,6 @@
 {
   "name": "noteherder",
-  "homepage": "http://lisla.github.io/noteherder1",
+  "homepage": "http://lisla.github.io/noteherder",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
