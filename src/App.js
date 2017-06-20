@@ -83,7 +83,7 @@ class App extends Component {
     this.setState({
       show: true,
       currentNote: this.blankNote(),
-    }, () => console.log(this.state.show))
+    })
   }
 
   clearCurrentNote = () => {
@@ -125,9 +125,9 @@ class App extends Component {
           currentNote={this.state.currentNote}
           show={this.state.show}
 
-          saveNote={this.saveNote} 
-          deleteNote={this.deleteNote} 
-          displayNote={this.displayNote} 
+          saveNote={this.saveNote}
+          deleteNote={this.deleteNote}
+          displayNote={this.displayNote}
           showNewNote={this.showNewNote}
           clearCurrentNote={this.clearCurrentNote}
           hideNoteForm={this.hideNoteForm}

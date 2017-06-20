@@ -30,38 +30,21 @@ class NoteForm extends Component{
     )
   }
 
-  saveNote = (ev) => {
-    ev.preventDefault()
-    this.setState(
-      { note: this.blankNote() },
-      () => {
-        this.props.clearCurrentNote()
-        this.props.hideNoteForm()
-      }
-    )
-  }
-
   deleteNote = (ev) => {
     this.props.deleteNote(this.state.note)
     this.setState({ note: this.blankNote() })
   }
 
-  hideForm = () => {
-    this.setState({
-      show: false,
-    })
-  }
-
   componentWillReceiveProps(newProps){
     this.setState({
       note: newProps.currentNote,
-    }, () => console.log(this.state.note.title))
+    })
   }
 
   render(){
     return(
       <div className={this.props.show ? "NoteForm" : "NoteForm hidden"}>
-        <form onSubmit={this.saveNote}>
+        <form>
           <p>
             <input
               type="text" 

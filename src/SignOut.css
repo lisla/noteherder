@@ -14,3 +14,7 @@
   cursor: pointer;
   cursor: hand;
 }
+
+.SignOut:hover{
+  background-color: #0069bc;
+}
