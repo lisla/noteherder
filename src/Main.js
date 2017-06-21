@@ -1,4 +1,5 @@
 import React from 'react'
+import { Route, Switch } from 'react-router-dom'
 
 import './index.css'
 import './Main.css'
@@ -18,14 +19,14 @@ const Main = (props) => {
         deleteNote={props.deleteNote} 
         displayNote={props.displayNote}
       />
-      <NoteForm 
-        saveNote={props.saveNote} 
-        show={props.show} 
-        currentNote={props.currentNote} 
-        clearCurrentNote={props.clearCurrentNote}
-        deleteNote={props.deleteNote}
-        hideNoteForm={props.hideNoteForm}
-      />
+      <Switch>
+        <Route path="/notes/:id" render={(navProps) => 
+          <NoteForm {...props} {...navProps}/> }
+        />
+        <Route render={(navProps) =>
+          <NoteForm {...props} {...navProps}/> } 
+        />
+      </Switch>
     </main>
   )
 }
