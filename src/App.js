@@ -22,6 +22,7 @@ class App extends Component {
   }
 
   componentWillMount = () => {
+    this.getUserFromLocalStorage()
     auth.onAuthStateChanged(
       (user) => {
         if(user){
@@ -29,6 +30,12 @@ class App extends Component {
         }
       }
     )
+  }
+  
+  getUserFromLocalStorage = () => {
+    const uid = localStorage.getItem('uid')
+    if(!uid) return
+    this.setState({ uid })
   }
 
   syncNotes = () => {
@@ -104,6 +111,7 @@ class App extends Component {
   }
 
   authHandler = (userData) => {
+    localStorage.setItem('uid', userData.uid)
     this.setState(
       { uid: userData.uid },
       this.syncNotes
@@ -117,6 +125,7 @@ class App extends Component {
         () => {
           base.removeBinding(this.ref)
           this.clearCurrentNote()
+          localStorage.removeItem('uid')
           this.setState({ uid: null, notes: {} })
         }
       )
@@ -135,8 +144,9 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-          <Route path="/notes" render={() => {
-            return(
+          <Route path="/notes" render={() => (
+            this.signedIn()
+            ? (
               <div>
                 <SignOut signOut={this.signOut} />
                 <Main 
@@ -152,9 +162,14 @@ class App extends Component {
                   hideNoteForm={this.hideNoteForm}
                 />
               </div>
-            )}
+            )
+            : <Redirect to="/sign-in" component={SignIn} />)
           }/>
-          <Route path="/sign-in" component={SignIn} />
+          <Route path="/sign-in" render={() => (
+            !this.signedIn()
+            ? <SignIn />
+            : <Redirect to="/notes" />
+          )} />
           <Route render={() => <Redirect to="/notes" />} />
         </Switch>
         {/*{ this.signedIn() ? this.renderMain() : <SignIn /> }*/}

@@ -36,9 +36,11 @@ class NoteForm extends Component{
   }
 
   componentWillReceiveProps(newProps){
-    this.setState({
-      note: newProps.currentNote,
-    })
+    
+    
+    // this.setState({
+    //   note: newProps.currentNote,
+    // })
   }
 
   render(){
