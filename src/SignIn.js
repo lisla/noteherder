@@ -9,19 +9,22 @@ const SignIn = () => {
   }
 
   return (
-    <div>
-      <button
-        className="SignIn"
-        onClick={() => authenticate(githubProvider)}
-      >
-        Sign In With GitHub
-      </button>
-      <button
-        className="SignIn"
-        onClick={() => authenticate(googleProvider)}
-      >
-        Sign In With Google
-      </button>
+    <div className="SignIn-div">
+      <h1>NoteHerder</h1>
+      <div className="SignIn-background">
+        <button
+          className="SignIn"
+          onClick={() => authenticate(githubProvider)}
+        >
+          Sign In With GitHub
+        </button>
+        <button
+          className="SignIn"
+          onClick={() => authenticate(googleProvider)}
+        >
+          Sign In With Google
+        </button>
+      </div>
     </div>
   )
 }
