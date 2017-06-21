@@ -4,21 +4,19 @@ import './SignIn.css'
 import { auth, githubProvider, googleProvider } from './base'
 
 const SignIn = () => {
-  
   const authenticate = (provider) => {
-    auth
-      .signInWithPopup(provider)
+    auth.signInWithPopup(provider)
   }
-  
-  return(
+
+  return (
     <div>
-      <button 
+      <button
         className="SignIn"
         onClick={() => authenticate(githubProvider)}
       >
         Sign In With GitHub
       </button>
-      <button 
+      <button
         className="SignIn"
         onClick={() => authenticate(googleProvider)}
       >
@@ -29,4 +27,3 @@ const SignIn = () => {
 }
 
 export default SignIn
-

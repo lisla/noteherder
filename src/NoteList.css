@@ -20,29 +20,6 @@
   margin: 20px 2rem;
 }
 
-.NoteList button{
-  height: 25px;
-  width: 50px;
-  margin: 0.5rem 3rem;
-  border: none;
-  border-radius: 3px;
-  cursor: hand;
-  cursor: pointer;
-}
-
-.NoteList button:hover{
-  background-color: darkgray;
-  transition: 0.9s;
-}
-
-.NoteList i{
-  margin: auto;
-  font-size: 16px;
-}
-
-.NoteList li{
-}
-
 ul#notes {
   border-top: 1px solid #eee;
   overflow-y: scroll;
@@ -54,16 +31,25 @@ ul#notes {
   color: #999;
 }
 
+ul#notes a,
+ul#notes a:link,
+ul#notes a:visited,
+ul#notes a:hover,
+ul#notes a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
 ul#notes > li {
+  height: 100px;
   font-size: 90%;
   cursor: pointer;
-  /*overflow: hidden;*/
+  overflow: hidden;
 }
 
 ul#notes > li,
-ul#notes > li, ul#notes > li * {
-  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  -o-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+ul#notes > li * {
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
 }
 
 ul#notes li .note {
@@ -71,7 +57,7 @@ ul#notes li .note {
   margin: 0 2rem;
   padding: 1rem 4px; 
 }
-ul#notes li:first-of-type .note {
+ul#notes a:first-of-type li .note {
   border-top: none; 
 }
 ul#notes li:hover {
@@ -95,7 +81,7 @@ ul#notes li .note-title {
   text-overflow: ellipsis;
 }
 ul#notes li .note-body {
-  height: 35px;
+  height: 54px;
   overflow: hidden;
   margin-top: 0.5rem;
 }
@@ -109,7 +95,7 @@ ul#notes li .note-body * {
 }
 ul#notes li .note {
   display: block;
-  height: 70px;
+  height: 100px;
   padding: 1em;
   text-decoration: none;
 }

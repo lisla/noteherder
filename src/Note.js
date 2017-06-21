@@ -1,28 +1,22 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
-const Note = (props) => {
-
-  return(
-    <li>
-      <div className="note" onClick={(ev) => props.displayNote(props.note)}>
-        <div className="note-title">
-          {props.note.title}
+const Note = ({ note }) => {
+  return (
+    <NavLink to={`/notes/${note.id}`}>
+      <li>
+        <div className="note">
+          <div className="note-title">
+            {note.title}
+          </div>
+          <div className="note-body">
+            <p>
+              {note.body}
+            </p>
+          </div>
         </div>
-        <div className="note-body">
-          <p>
-            {props.note.body}
-          </p>
-        </div>
-      </div>
-      <div>
-        <button type="button" onClick={(ev) => props.deleteNote(props.note) }>
-            <i 
-              className="fa fa-trash-o"
-              aria-hidden="true"
-            ></i>
-          </button>
-      </div>
-    </li>
+      </li>
+    </NavLink>
   )
 }
 
