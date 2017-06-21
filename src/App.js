@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom'
 
 import './index.css'
 import './App.css'
@@ -125,19 +126,7 @@ class App extends Component {
   renderMain = () => {
     return(
       <div>
-        <SignOut signOut={this.signOut} />
-        <Main 
-          notes={this.state.notes} 
-          currentNote={this.state.currentNote}
-          show={this.state.show}
-
-          saveNote={this.saveNote}
-          deleteNote={this.deleteNote}
-          displayNote={this.displayNote}
-          showNewNote={this.showNewNote}
-          clearCurrentNote={this.clearCurrentNote}
-          hideNoteForm={this.hideNoteForm}
-        />
+        
       </div>
     )
   }
@@ -145,7 +134,30 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        { this.signedIn() ? this.renderMain() : <SignIn /> }
+        <Switch>
+          <Route path="/notes" render={() => {
+            return(
+              <div>
+                <SignOut signOut={this.signOut} />
+                <Main 
+                  notes={this.state.notes} 
+                  currentNote={this.state.currentNote}
+                  show={this.state.show}
+
+                  saveNote={this.saveNote}
+                  deleteNote={this.deleteNote}
+                  displayNote={this.displayNote}
+                  showNewNote={this.showNewNote}
+                  clearCurrentNote={this.clearCurrentNote}
+                  hideNoteForm={this.hideNoteForm}
+                />
+              </div>
+            )}
+          }/>
+          <Route path="/sign-in" component={SignIn} />
+          <Route render={() => <Redirect to="/notes" />} />
+        </Switch>
+        {/*{ this.signedIn() ? this.renderMain() : <SignIn /> }*/}
       </div>
     )
   }
