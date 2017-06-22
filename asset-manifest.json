@@ -1,7 +1,9 @@
 {
-  "main.css": "static/css/main.063cadea.css",
-  "main.css.map": "static/css/main.063cadea.css.map",
-  "main.js": "static/js/main.7131cba3.js",
-  "main.js.map": "static/js/main.7131cba3.js.map",
+  "main.css": "static/css/main.ff745c40.css",
+  "main.css.map": "static/css/main.ff745c40.css.map",
+  "main.js": "static/js/main.e8e59a59.js",
+  "main.js.map": "static/js/main.e8e59a59.js.map",
+  "static\\media\\new-hover.png": "static/media/new-hover.751b2c31.png",
+  "static\\media\\new.png": "static/media/new.2718a414.png",
   "static\\media\\quill.svg": "static/media/quill.d2ea47fa.svg"
 }
